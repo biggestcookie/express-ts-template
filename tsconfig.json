@@ -8,11 +8,13 @@
     "lib": [
       "ES2019"
     ],
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
     "module": "commonjs",
     "moduleResolution": "node",
     "target": "es2019",
     "strict": true,
-    "strictNullChecks": true,
+    "strictNullChecks": false,
     "inlineSourceMap": true,
     "outDir": "dist",
     "baseUrl": ".",

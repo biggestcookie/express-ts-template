@@ -1,15 +1,31 @@
-import GithubService from "@/services/github.service";
-import { Request, Response, Router } from "express";
+import { GithubService } from "@/services/github.service";
+import { Controller } from "@/utils/controller";
+import { Request, Response } from "express";
 
-export default class GithubController {
-  public basePath = "github";
-  router = Router();
+/**
+ * Sample route that uses an external service, the GitHub API
+ */
+export default class GithubController extends Controller {
+  public basePath = "/github";
 
-  constructor(private readonly githubService: GithubService) {
-    this.router.get("/user", this.getGithubUser);
+  private readonly githubService = new GithubService();
+
+  constructor() {
+    super();
+    this.router.get("/user", this.getGithubUser.bind(this));
   }
 
-  async getGithubUser(request: Request, response: Response): Promise<void> {
-    response.send(await this.githubService.getGithubUser());
+  /**
+   * Route at /api/github/user (see constructor)
+   * Returns the current GitHub user that this API is authenticated as
+   */
+  async getGithubUser(request: Request, response: Response): Promise<Response> {
+    try {
+      const user = await this.githubService.getGithubUser();
+      return response.send(user);
+    } catch (error) {
+      console.error(error);
+      return response.status(500).send(error);
+    }
   }
 }

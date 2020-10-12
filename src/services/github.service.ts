@@ -1,28 +1,33 @@
 import config from "@/config/config.json";
 import Axios, { AxiosInstance } from "axios";
 
-
-export default class GithubService {
+/**
+ * Sample external service to access GitHub API
+ */
+export class GithubService {
   instance: AxiosInstance;
 
   serviceUrl = "https://api.github.com";
-  userUrl = "/user"
+  userUrl = "/user";
   headers = {
-    "Autorization": `token ${process.env.GITHUB_TOKEN}`
-  }
+    Authorization: `token ${process.env.GITHUB_TOKEN}`,
+  };
 
   constructor() {
     this.instance = Axios.create({
       baseURL: this.serviceUrl,
       timeout: config.services.defaultServiceTimeout,
-      headers: this.headers
-    })
+      headers: this.headers,
+    });
   }
 
+  /**
+   * Fetch the current GitHub user that this API is authenticated with
+   */
   async getGithubUser(): Promise<any> {
-    return this.instance({
+    return await this.instance({
       method: "get",
-      url: this.userUrl
-    })
+      url: this.userUrl,
+    });
   }
 }

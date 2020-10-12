@@ -10,4 +10,5 @@ async function init() {
   }
 }
 
+// Node entry point
 init();
