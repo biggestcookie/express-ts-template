@@ -52,7 +52,7 @@ export class App {
   private async initDatabaseConnection() {
     await createConnection({
       type: "sqlite",
-      database: "../db.sqlite",
+      database: "./db.sqlite",
       entities: [`${__dirname}/entities/*.js`],
       synchronize: process.env.NODE_ENV !== "production",
     } as ConnectionOptions);
