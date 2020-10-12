@@ -24,10 +24,12 @@ export class GithubService {
   /**
    * Fetch the current GitHub user that this API is authenticated with
    */
-  async getGithubUser(): Promise<any> {
-    return await this.instance({
-      method: "get",
-      url: this.userUrl,
-    });
+  async getGithubUserFromApi(): Promise<any> {
+    return (
+      await this.instance({
+        method: "get",
+        url: this.userUrl,
+      })
+    ).data;
   }
 }

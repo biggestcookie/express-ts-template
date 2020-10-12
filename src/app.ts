@@ -2,6 +2,7 @@ import bodyParser from "body-parser";
 import express from "express";
 import { readdir } from "fs";
 import { ConnectionOptions, createConnection } from "typeorm";
+import { indexReadMe } from "./utils/readme";
 
 export class App {
   public port: number;
@@ -30,6 +31,7 @@ export class App {
   private async initExpress() {
     this.express.use(bodyParser.json());
     this.express.use(bodyParser.urlencoded({ extended: true }));
+    this.express.use("/", indexReadMe);
     readdir(`${__dirname}/controllers`, async (error, controllerFiles) => {
       // Import each file in /controllers as a route under the base path
       if (error) throw error;

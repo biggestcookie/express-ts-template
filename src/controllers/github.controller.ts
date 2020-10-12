@@ -21,7 +21,7 @@ export default class GithubController extends Controller {
    */
   async getGithubUser(request: Request, response: Response): Promise<Response> {
     try {
-      const user = await this.githubService.getGithubUser();
+      const user = await this.githubService.getGithubUserFromApi();
       return response.send(user);
     } catch (error) {
       console.error(error);
