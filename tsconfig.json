@@ -1,40 +1,22 @@
 {
   "compilerOptions": {
+    "target": "es2020",
+    "module": "commonjs",
     "allowSyntheticDefaultImports": true,
     "resolveJsonModule": true,
     "esModuleInterop": true,
     "importHelpers": true,
     "noImplicitAny": true,
-    "lib": [
-      "ES2019"
-    ],
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
-    "module": "commonjs",
     "moduleResolution": "node",
-    "target": "es2019",
     "strict": true,
-    "strictNullChecks": false,
-    "inlineSourceMap": true,
+    "sourceMap": true,
     "outDir": "dist",
     "baseUrl": ".",
     "skipLibCheck": true,
     "paths": {
-      "*": [
-        "node_modules/*",
-        "src/types/*"
-      ],
-      "@/*": [
-        "src/*"
-      ]
+      "*": ["node_modules/*", "src/types/*"]
     }
   },
-  "include": [
-    "src/**/*"
-  ],
-  "exclude": [
-    "node_modules",
-    "dist",
-    "test"
-  ]
+  "include": ["./src/**/*", "../server/**/*"],
+  "exclude": ["node_modules", "dist", "test"]
 }

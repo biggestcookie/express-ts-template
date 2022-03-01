@@ -1,76 +1,28 @@
 {
   "name": "express-ts-template",
   "version": "1.0.0",
-  "description": "A starter template for Express with Typescript",
-  "main": "dist/index.js",
+  "main": "dist/app.js",
   "scripts": {
-    "build": "tsc --p tsconfig.json",
+    "build": "tsc -b",
+    "dev": "ts-node-dev --inspect --transpile-only src/app.ts",
     "prestart": "npm run build",
-    "start": "node dist/index.js",
-    "lint": "eslint src/**/*.ts",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node dist/server/src/app.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/biggestcookie/express-ts-template.git"
-  },
-  "license": "AGPL-3.0-or-later",
-  "bugs": {
-    "url": "https://github.com/biggestcookie/express-ts-template/issues"
-  },
-  "homepage": "https://github.com/biggestcookie/express-ts-template#readme",
   "engines": {
-    "node": "12.x"
+    "node": "16.x"
   },
   "dependencies": {
-    "axios": "^0.20.0",
-    "body-parser": "^1.19.0",
-    "express": "^4.17.1",
-    "marked": "^1.2.0",
-    "module-alias": "^2.2.2",
-    "sqlite3": "^5.0.0",
-    "typeorm": "^0.2.28"
+    "cors": "^2.8.5",
+    "express": "^4.17.3",
+    "sequelize": "^6.17.0",
+    "sqlite3": "^5.0.2"
   },
   "devDependencies": {
-    "@types/body-parser": "^1.19.0",
-    "@types/express": "^4.17.8",
-    "@types/marked": "^1.1.0",
-    "@types/node": "^14.11.8",
-    "@typescript-eslint/eslint-plugin": "^4.4.0",
-    "@typescript-eslint/parser": "^4.4.0",
-    "eslint": "^7.11.0",
-    "eslint-config-prettier": "^6.12.0",
-    "eslint-plugin-prettier": "^3.1.4",
-    "reflect-metadata": "^0.1.13",
-    "typescript": "^4.0.3"
-  },
-  "_moduleAliases": {
-    "@": "dist/"
-  },
-  "eslintConfig": {
-    "root": true,
-    "env": {
-      "es2020": true,
-      "node": true
-    },
-    "extends": [
-      "plugin:@typescript-eslint/recommended",
-      "prettier",
-      "prettier/@typescript-eslint"
-    ],
-    "parser": "@typescript-eslint/parser",
-    "parserOptions": {
-      "ecmaVersion": 2020,
-      "sourceType": "module"
-    },
-    "plugins": [
-      "@typescript-eslint"
-    ],
-    "rules": {
-      "@typescript-eslint/explicit-function-return-type": "off",
-      "@typescript-eslint/no-explicit-any": "off",
-      "@typescript-eslint/no-unused-vars": "off",
-      "no-console": "off"
-    }
+    "@types/cors": "^2.8.12",
+    "@types/express": "^4.17.13",
+    "@types/node": "^16.11.26",
+    "@types/validator": "^13.7.1",
+    "ts-node-dev": "^1.1.8",
+    "typescript": "^4.6.2"
   }
 }

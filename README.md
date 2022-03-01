@@ -1,19 +1,19 @@
-# Express Typescript Template
+# Express TypeScript Template
 
-[GitHub repository](https://github.com/biggestcookie/express-ts-template)
+My personal Express app template, using:
 
-[Glitch live demo](https://glitch.com/~express-ts-template)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Express.js](https://expressjs.com/)
+- [Sequelize](https://sequelize.org/v6/)
+
+This project references some TypeScript my personal monorepo template, [vue-express-template](https://github.com/biggestcookie/vue-express-template). To remove these dependencies, search and remove all references to the `shared` folder. Additionally, this template repo does not contain linting configuration; that can be found in and copied from the monorepo template.
 
 ## Setup
 
-1. [Install Node.js 12 or higher](https://nodejs.org/en/download/)
-2. Install project dependencies with `npm install`
-3. Run the application with the VS Code debugger, or `npm run start` if possible.
-
-In addition, for VS Code users:
-
-1. If you wish to test the `GithubController` routes, you must issue a [GitHub personal access token](https://docs.github.com/en/free-pro-team@latest/github/authenticating-to-github/creating-a-personal-access-token) and create a `.env` file. Use the provided `.env_example` as a template.
-2. Install the [Prettier extension](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode).
-3. Recommended: Install the [VS Intellicode](https://marketplace.visualstudio.com/items?itemName=VisualStudioExptTeam.vscodeintellicode) extension for better code suggestions/completion.
-4. VSCode tasks are included in this repo as well: press 'F1' or 'Ctrl + Shift + P' and select 'Run Tasks' to access them.
-5. You may also run or debug the application using the included debug profile.
+1. Run `npm install` in the root folder.
+2. Run the dev server:
+   - If you are using Visual Studio Code, press `Ctrl/Cmd + Shift + B` to run the default dev task.
+   - If you are not using Visual Studio Code or wish to run this manually, run `npm run dev`.
+3. Build the project:
+   - Run `npm run build` in the root folder.
+   - When deploying this app, point your deployment to the `dist` folder.
